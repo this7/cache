@@ -3,7 +3,7 @@
  * @Author: Administrator
  * @Date:   2017-03-29 10:24:07
  * @Last Modified by:   qinuoyun
- * @Last Modified time: 2018-03-07 14:36:25
+ * @Last Modified time: 2018-09-13 14:24:55
  */
 namespace this7\cache\build;
 use Exception;
@@ -30,8 +30,12 @@ class file implements base {
      * @return [type] [description]
      */
     public function connect() {
-        if (!is_dir($this->dir) && !to_mkdir($this->dir, '', true, false)) {
-            throw new Exception("缓存目录创建失败");
+        try {
+            if (!is_dir($this->dir) && !to_mkdir($this->dir, '', true, false)) {
+                throw new Exception("缓存目录创建失败");
+            }
+        } catch (Exception $e) {
+            errorout($e);
         }
     }
 
