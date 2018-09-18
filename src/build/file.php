@@ -3,7 +3,7 @@
  * @Author: Administrator
  * @Date:   2017-03-29 10:24:07
  * @Last Modified by:   qinuoyun
- * @Last Modified time: 2018-09-13 14:24:55
+ * @Last Modified time: 2018-09-18 16:28:22
  */
 namespace this7\cache\build;
 use Exception;
@@ -35,7 +35,7 @@ class file implements base {
                 throw new Exception("缓存目录创建失败");
             }
         } catch (Exception $e) {
-            errorout($e);
+            ERRORCODE($e);
         }
     }
 
